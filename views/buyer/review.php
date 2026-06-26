@@ -43,29 +43,38 @@ if (!$order) {
     redirect(BASE_URL . 'views/buyer/orders.php');
 }
 
-// Cek apakah sudah pernah review
+// Ambil produk dari order yang BELUM di-review
 $stmt = $db->prepare("
-    SELECT id FROM reviews WHERE order_id = ? AND user_id = ?
+    SELECT oi.*, 
+           COALESCE(p.image, oi.product_image) as image,
+           CASE WHEN r.id IS NOT NULL THEN 1 ELSE 0 END as is_reviewed
+    FROM order_items oi
+    LEFT JOIN products p ON oi.product_id = p.id
+    LEFT JOIN reviews r ON r.product_id = oi.product_id AND r.order_id = oi.order_id AND r.user_id = ?
+    WHERE oi.order_id = ?
 ");
-$stmt->execute([$orderId, $userId]);
-if ($stmt->fetch()) {
-    setFlash('warning', 'Anda sudah memberikan ulasan untuk pesanan ini');
+$stmt->execute([$userId, $orderId]);
+$items = $stmt->fetchAll();
+
+// Cek apakah semua sudah di-review
+$allReviewed = true;
+$reviewedCount = 0;
+foreach ($items as $item) {
+    if ($item['is_reviewed']) {
+        $reviewedCount++;
+    } else {
+        $allReviewed = false;
+    }
+}
+
+// Jika semua sudah di-review, redirect ke orders
+if ($allReviewed && !empty($items)) {
+    setFlash('success', 'Semua produk sudah diulas! Terima kasih.');
     redirect(BASE_URL . 'views/buyer/orders.php');
 }
 
-// Ambil produk dari order
-$stmt = $db->prepare("
-    SELECT oi.*, 
-           COALESCE(p.image, oi.product_image) as image
-    FROM order_items oi
-    LEFT JOIN products p ON oi.product_id = p.id
-    WHERE oi.order_id = ?
-");
-$stmt->execute([$orderId]);
-$items = $stmt->fetchAll();
-
 if (empty($items)) {
-    setFlash('danger', 'Tidak ada produk dalam pesanan ini');
+    setFlash('warning', 'Tidak ada produk dalam pesanan ini');
     redirect(BASE_URL . 'views/buyer/orders.php');
 }
 
@@ -82,6 +91,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if ($productId <= 0 || $rating < 1 || $rating > 5) {
         setFlash('danger', 'Data ulasan tidak valid');
+        redirect(BASE_URL . 'views/buyer/review.php?order_id=' . $orderId);
+    }
+    
+    // Cek apakah sudah di-review
+    $stmt = $db->prepare("
+        SELECT id FROM reviews WHERE product_id = ? AND order_id = ? AND user_id = ?
+    ");
+    $stmt->execute([$productId, $orderId, $userId]);
+    if ($stmt->fetch()) {
+        setFlash('warning', 'Produk ini sudah diulas');
         redirect(BASE_URL . 'views/buyer/review.php?order_id=' . $orderId);
     }
     
@@ -102,8 +121,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $stmt->execute([$productId, $userId, $orderId, $rating, $comment, $imagePath]);
     
     if ($result) {
-        setFlash('success', 'Terima kasih! Ulasan Anda berhasil dikirim.');
-        redirect(BASE_URL . 'views/buyer/orders.php');
+        setFlash('success', 'Ulasan untuk produk berhasil dikirim!');
+        // Redirect kembali ke halaman review untuk produk berikutnya
+        redirect(BASE_URL . 'views/buyer/review.php?order_id=' . $orderId);
     } else {
         setFlash('danger', 'Gagal mengirim ulasan. Silakan coba lagi.');
         redirect(BASE_URL . 'views/buyer/review.php?order_id=' . $orderId);
@@ -153,6 +173,19 @@ $flash = getFlash();
             border-radius: 10px;
             margin-top: 10px;
             border: 2px solid #e5e7eb;
+        }
+        .reviewed-badge {
+            background: #dcfce7;
+            color: #16a34a;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .progress-bar-container {
+            background: #f1f5f9;
+            border-radius: 10px;
+            padding: 12px 20px;
         }
         @media (max-width: 768px) {
             .rating-star {
@@ -227,9 +260,33 @@ $flash = getFlash();
                     <i class="bi bi-star text-warning"></i> Beri Ulasan
                 </h4>
                 <p class="text-muted">Pesanan #<?= $order['order_code'] ?></p>
+                
+                <!-- ============ PROGRESS REVIEW ============ -->
+                <div class="progress-bar-container">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="small text-muted">Progress Ulasan</span>
+                        <span class="fw-bold"><?= $reviewedCount ?>/<?= count($items) ?></span>
+                    </div>
+                    <div class="progress" style="height: 8px;">
+                        <div class="progress-bar bg-success" role="progressbar" 
+                             style="width: <?= ($reviewedCount / count($items)) * 100 ?>%;" 
+                             aria-valuenow="<?= ($reviewedCount / count($items)) * 100 ?>" 
+                             aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <?php foreach ($items as $item): ?>
+            <?php 
+            $foundUnreviewed = false;
+            foreach ($items as $item): 
+                if ($item['is_reviewed']) {
+                    // Sudah di-review - tampilkan sebagai "Sudah Diulas"
+                    continue;
+                }
+                $foundUnreviewed = true;
+            ?>
+            <!-- ============ FORM REVIEW UNTUK 1 PRODUK ============ -->
             <div class="bg-white rounded-3 border p-4 mb-3">
                 <form method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="csrf_token" value="<?= $csrfToken ?>">
@@ -244,6 +301,7 @@ $flash = getFlash();
                             <h6 class="fw-bold mb-0"><?= sanitize($item['product_name'] ?? 'Produk') ?></h6>
                             <small class="text-muted">×<?= $item['quantity'] ?></small>
                         </div>
+                        <span class="ms-auto badge bg-warning text-dark">Belum diulas</span>
                     </div>
                     
                     <!-- Rating -->
@@ -281,6 +339,46 @@ $flash = getFlash();
                 </form>
             </div>
             <?php endforeach; ?>
+            
+            <!-- ============ PRODUK YANG SUDAH DI-REVIEW ============ -->
+            <?php foreach ($items as $item): 
+                if (!$item['is_reviewed']) continue;
+            ?>
+            <div class="bg-light rounded-3 border p-3 mb-2 d-flex align-items-center">
+                <img src="<?= $item['image'] ? UPLOAD_URL . $item['image'] : BASE_URL . 'assets/images/no-food.jpg' ?>" 
+                     alt="<?= sanitize($item['product_name'] ?? 'Produk') ?>"
+                     style="width: 48px; height: 48px; object-fit: cover; border-radius: 8px;"
+                     onerror="this.src='<?= BASE_URL ?>assets/images/no-food.jpg'">
+                <div class="ms-3 flex-grow-1">
+                    <span class="fw-semibold"><?= sanitize($item['product_name'] ?? 'Produk') ?></span>
+                    <span class="ms-2 text-muted">×<?= $item['quantity'] ?></span>
+                </div>
+                <span class="reviewed-badge">
+                    <i class="bi bi-check-circle me-1"></i> Sudah Diulas
+                </span>
+            </div>
+            <?php endforeach; ?>
+            
+            <!-- ============ TOMBOL SELESAI ============ -->
+            <?php if (!$foundUnreviewed && !empty($items)): ?>
+            <div class="text-center mt-4">
+                <div class="bg-success bg-opacity-10 rounded-3 p-4 border border-success">
+                    <i class="bi bi-check-circle-fill text-success fs-2 d-block mb-2"></i>
+                    <h5 class="fw-bold text-success">Semua produk sudah diulas!</h5>
+                    <p class="text-muted">Terima kasih atas ulasan Anda.</p>
+                    <a href="<?= BASE_URL ?>views/buyer/orders.php" class="btn btn-success mt-2">
+                        <i class="bi bi-arrow-left me-2"></i> Kembali ke Pesanan
+                    </a>
+                </div>
+            </div>
+            <?php elseif ($foundUnreviewed): ?>
+            <div class="text-center mt-3">
+                <a href="<?= BASE_URL ?>views/buyer/orders.php" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left me-2"></i> Lewati & Kembali
+                </a>
+                <small class="d-block text-muted mt-1">Ulasan yang belum dikirim bisa dilanjutkan nanti</small>
+            </div>
+            <?php endif; ?>
             
         </div>
     </div>
