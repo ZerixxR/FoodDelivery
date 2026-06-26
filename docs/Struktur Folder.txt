@@ -1,0 +1,66 @@
+fooddelivery/
+│
+├── index.php                          ← Entry point
+│
+├── config/
+│   ├── database.php                   ← Koneksi PDO + konstanta
+│   └── helpers.php                    ← Fungsi global
+│
+├── controllers/
+│   ├── AuthController.php             ← Register, Login, Logout
+│   ├── CartController.php             ← Keranjang belanja
+│   ├── OrderController.php            ← Checkout, update status
+│   ├── PaymentController.php          ← Upload & verifikasi bukti
+│   ├── ProductController.php          ← CRUD produk
+│   ├── TrackingController.php         ← Tracking & assign driver
+│   └── NotificationController.php     ← Notifikasi user
+│
+├── views/
+│   ├── public/
+│   │   ├── index.php                  ← Landing page
+│   │   ├── login.php                  ← Login
+│   │   ├── register.php               ← Register (3 role)
+│   │   └── menu.php                   ← Katalog menu
+│   │
+│   ├── buyer/
+│   │   ├── cart.php                   ← Keranjang
+│   │   ├── checkout.php               ← Checkout
+│   │   ├── orders.php                 ← Daftar pesanan
+│   │   ├── tracking.php               ← Tracking real-time
+│   │   └── profile.php                ← Profil
+│   │
+│   ├── seller/
+│   │   ├── dashboard.php              ← Dashboard seller
+│   │   ├── menu.php                   ← Kelola menu
+│   │   ├── menu-form.php              ← Tambah/edit menu
+│   │   └── orders.php                 ← Pesanan masuk
+│   │
+│   ├── driver/
+│   │   ├── dashboard.php              ← Dashboard driver
+│   │   └── delivery.php               ← Detail pengiriman
+│   │
+│   └── admin/
+│       ├── dashboard.php              ← Dashboard admin
+│       ├── orders.php                 ← Semua pesanan
+│       ├── payments.php               ← Verifikasi pembayaran
+│       └── users.php                  ← Kelola user
+│
+├── assets/
+│   ├── css/style.css                  ← Custom CSS
+│   └── js/main.js                     ← Fungsi global JS
+│
+├── uploads/                           ← File upload
+│   ├── foods/                         ← Gambar menu
+│   ├── payments/                      ← Bukti transfer
+│   └── invoices/                      ← Invoice .txt
+│
+├── database/
+│   └── database.sql                   ← Skema database
+│
+├── docs/
+│   ├── README.md                      ← Dokumentasi
+│   ├── USER_MANUAL.md                 ← Panduan user
+│   └── DATABASE_SCHEMA.md             ← Skema database
+│
+└── presentation/
+    └── PRESENTASI_EAS.pptx            ← Slide presentasi

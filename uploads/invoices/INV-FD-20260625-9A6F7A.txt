@@ -1,0 +1,31 @@
+========================================
+           FOODDELIVERY INVOICE          
+========================================
+
+Invoice Number: INV-FD-20260625-9A6F7A
+Order Code:     FD-20260625-9A6F7A
+Date:           25/06/2026 14:29:46
+
+----------------------------------------
+CUSTOMER INFORMATION
+----------------------------------------
+Name:    Budi Santoso
+Email:   buyer@food.com
+Phone:   085776171856
+Address: Jl. Raya Perjuangan No.81, RT.003/RW.002, Marga Mulya, Kec. Bekasi Utara, Kota Bks, Jawa Barat 17143
+
+----------------------------------------
+ORDER DETAILS
+----------------------------------------
+Ayam Bakar                     x  1   Rp 40.000
+Pisang Goreng                  x  1   Rp 15.000
+
+----------------------------------------
+TOTAL:                              Rp 55.000
+----------------------------------------
+Payment Method: ewallet
+Status:         PENDING
+
+========================================
+Terima kasih telah berbelanja!
+========================================

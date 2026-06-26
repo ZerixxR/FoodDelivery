@@ -1,0 +1,20 @@
+🛡️ Fitur Keamanan
+Fitur	Implementasi
+✅ Password Hashing	BCRYPT cost 12 di semua register/update
+✅ SQL Injection	100% PDO Prepared Statement
+✅ XSS Prevention	sanitize() = htmlspecialchars + strip_tags + trim
+✅ CSRF Protection	Token di setiap form POST
+✅ Session Security	Session regeneration on login
+✅ Remember Me	Cookie 30 hari dengan httpOnly
+✅ File Upload	Validasi MIME type, max 2MB, rename uniqid
+✅ Role-based Access	requireRole() di semua halaman
+✅ Soft Delete	is_active = 0 untuk produk
+🛠️ Teknologi
+Layer	Teknologi	Versi
+Backend	PHP Native	8.x
+Database	MySQL	8.x
+Frontend	Bootstrap	5.3.3
+Icons	Bootstrap Icons	1.11.3
+Font	Google Fonts Poppins	-
+JavaScript	Vanilla JS	ES6+
+Server	Apache (XAMPP)	-

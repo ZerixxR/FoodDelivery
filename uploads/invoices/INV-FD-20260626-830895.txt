@@ -1,0 +1,31 @@
+========================================
+           FOODDELIVERY INVOICE          
+========================================
+
+Invoice Number: INV-FD-20260626-830895
+Order Code:     FD-20260626-830895
+Date:           26/06/2026 02:54:11
+
+----------------------------------------
+CUSTOMER INFORMATION
+----------------------------------------
+Name:    Zerix Allen
+Email:   buyer@food.com
+Phone:   085776171856
+Address: Jl. Raya Perjuangan No.81, RT.003/RW.002, Marga Mulya, Kec. Bekasi Utara, Kota Bks, Jawa Barat 17143
+
+----------------------------------------
+ORDER DETAILS
+----------------------------------------
+Roti Bakar                     x  1   Rp 12.000
+Es Teh Manis                   x  1    Rp 8.000
+
+----------------------------------------
+TOTAL:                              Rp 20.000
+----------------------------------------
+Payment Method: cod
+Status:         PENDING
+
+========================================
+Terima kasih telah berbelanja!
+========================================

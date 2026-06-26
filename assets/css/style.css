@@ -1,0 +1,754 @@
+/* ============================================================
+   BASE — (CSS LAMA ANDA)
+============================================================ */
+
+/* Auth */
+.auth-body { background: linear-gradient(135deg, #fff5f5, #f8fafc); font-family: 'Segoe UI', sans-serif; }
+.auth-card { background: white; border-radius: 20px; border: 1px solid #e2e8f0;
+             padding: 40px; width: 100%; max-width: 480px; }
+.brand-icon { width: 52px; height: 52px; background: linear-gradient(135deg, #dc2626, #ef4444);
+              border-radius: 14px; display: flex; align-items: center; justify-content: center;
+              color: white; font-size: 1.5rem; }
+.brand-icon-sm { width: 34px; height: 34px; border-radius: 10px; font-size: 1rem; }
+
+/* Menu Card */
+.menu-card { background: white; border-radius: 14px; border: 1px solid #e2e8f0;
+             overflow: hidden; transition: all 0.2s ease; }
+.menu-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(220,38,38,0.15); border-color: #fca5a5; }
+.menu-img-wrap { position: relative; height: 180px; background: #f1f5f9; overflow: hidden; }
+.menu-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+.menu-card:hover .menu-img-wrap img { transform: scale(1.07); }
+.menu-badge { position: absolute; top: 10px; left: 10px; background: rgba(220,38,38,.85);
+              color: white; font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+.menu-body { padding: 14px; }
+.menu-title { font-weight: 700; font-size: 0.9rem; line-height: 1.4; margin-bottom: 6px; }
+.menu-price { font-size: 1.05rem; font-weight: 800; color: #dc2626; }
+.stars { color: #f59e0b; font-size: 0.78rem; }
+
+/* Form */
+.form-control, .form-select { border-radius: 10px; border-color: #e2e8f0; padding: 10px 14px; }
+.form-control:focus, .form-select:focus { border-color: #dc2626; box-shadow: 0 0 0 3px rgba(220,38,38,.12); }
+.btn { border-radius: 10px; font-weight: 600; }
+
+/* ============================================================
+   HOMEPAGE — Hero (CSS LAMA ANDA)
+============================================================ */
+.hero-section {
+  background: linear-gradient(135deg, #b91c1c 0%, #dc2626 40%, #f97316 100%);
+  padding: 90px 0 80px;
+  color: white;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.hero-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+.hero-search-form {
+  max-width: 580px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+.hero-search-form .input-group {
+  border-radius: 50px;
+  overflow: hidden;
+}
+.hero-search-form .form-control {
+  border-radius: 0;
+  font-size: 1rem;
+}
+
+/* Floating emoji animasi */
+.floating-emoji {
+  position: absolute;
+  font-size: 2rem;
+  animation: floatUpDown 3s ease-in-out infinite;
+  opacity: 0.35;
+  pointer-events: none;
+  user-select: none;
+}
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0px) rotate(-5deg); }
+  50%       { transform: translateY(-18px) rotate(5deg); }
+}
+
+/* ============================================================
+   HOMEPAGE — Stats Hero (CSS LAMA ANDA)
+============================================================ */
+.stat-hero-item      { padding: 16px 8px; }
+.stat-hero-number    { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; color: #dc2626; }
+.stat-hero-label     { font-size: 0.82rem; color: #64748b; font-weight: 500; margin-top: 4px; }
+
+/* ============================================================
+   HOMEPAGE — Kategori Card (CSS LAMA ANDA)
+============================================================ */
+.category-card {
+  transition: all 0.2s ease;
+  border-color: #e2e8f0 !important;
+}
+.category-card:hover {
+  transform: translateY(-4px);
+  border-color: #fca5a5 !important;
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.12);
+}
+.category-emoji  { font-size: 2.2rem; line-height: 1; }
+.category-name   { color: #1e293b; }
+
+/* ============================================================
+   HOMEPAGE — Menu Card (CSS LAMA ANDA)
+============================================================ */
+.menu-sold-out {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+
+/* ============================================================
+   HOMEPAGE — Cara Kerja (CSS LAMA ANDA)
+============================================================ */
+.how-card   { padding: 8px; }
+.how-icon   {
+  width: 70px; height: 70px;
+  border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+  margin: 0 auto;
+}
+.how-step   {
+  width: 28px; height: 28px;
+  background: #dc2626;
+  color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  margin: 12px auto 0;
+}
+
+/* ============================================================
+   SECTION SHARED (CSS LAMA ANDA)
+============================================================ */
+.section-title   { font-weight: 800; font-size: clamp(1.4rem, 3vw, 1.8rem); color: #1e293b; }
+.section-divider {
+  width: 40px; height: 4px;
+  background: #dc2626;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+/* ============================================================
+   RESPONSIVE (CSS LAMA ANDA)
+============================================================ */
+@media (max-width: 768px) {
+  .hero-section   { padding: 60px 0 50px; text-align: center; }
+  .floating-emoji { display: none; }
+  .how-card       { margin-bottom: 8px; }
+}
+
+
+/* ============================================================
+   ═══════════════════════════════════════════════════════════
+   TAMBAHAN BARU — TIDAK BENTROK DENGAN CSS LAMA
+   ═══════════════════════════════════════════════════════════
+   Semua class baru menggunakan prefix .fd- (FoodDelivery)
+   atau selector yang lebih spesifik
+============================================================ */
+
+/* ============================================================
+   NAVBAR STYLING (TAMBAHAN)
+============================================================ */
+.fd-navbar {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    background: white;
+}
+.fd-navbar .nav-link {
+    color: #4b5563;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+}
+.fd-navbar .nav-link:hover {
+    color: #dc2626;
+    background: #fef2f2;
+}
+.fd-navbar .nav-link.active {
+    color: #dc2626;
+    background: #fef2f2;
+}
+.fd-navbar .cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    background: #dc2626;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fd-navbar .dropdown-menu {
+    border: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border-radius: 12px;
+}
+.fd-navbar .dropdown-item {
+    padding: 10px 20px;
+    font-size: 14px;
+    transition: all 0.15s ease;
+}
+.fd-navbar .dropdown-item:hover {
+    background: #fef2f2;
+    color: #dc2626;
+}
+.fd-navbar .dropdown-item.text-danger:hover {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* ============================================================
+   BRAND ICON EXTRA (TAMBAHAN)
+============================================================ */
+.brand-icon-lg {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    font-size: 28px;
+}
+.brand-icon-xl {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    font-size: 36px;
+}
+
+/* ============================================================
+   SIDEBAR (Admin, Seller, Driver) — TAMBAHAN
+============================================================ */
+.fd-sidebar {
+    background: white;
+    border-right: 1px solid #e5e7eb;
+    min-height: calc(100vh - 56px);
+    padding: 24px 0;
+}
+.fd-sidebar .nav-link {
+    color: #6b7280;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin: 2px 12px;
+    font-weight: 500;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.fd-sidebar .nav-link i {
+    width: 20px;
+    font-size: 16px;
+}
+.fd-sidebar .nav-link:hover {
+    background: #fef2f2;
+    color: #dc2626;
+}
+.fd-sidebar .nav-link.active {
+    background: #dc2626;
+    color: white;
+}
+.fd-sidebar .nav-link .badge {
+    margin-left: auto;
+}
+
+/* ============================================================
+   STAT CARDS DASHBOARD (TAMBAHAN)
+============================================================ */
+.fd-stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
+}
+.fd-stat-card:hover {
+    border-color: #fca5a5;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+}
+.fd-stat-card .stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+.fd-stat-card .stat-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1.2;
+}
+.fd-stat-card .stat-label {
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ============================================================
+   STATUS BADGES (TAMBAHAN - SEMUA WARNA)
+============================================================ */
+.fd-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+.fd-status-pending { background: #fef3c7; color: #d97706; }
+.fd-status-confirmed { background: #dbeafe; color: #2563eb; }
+.fd-status-cooking { background: #fef2f2; color: #b91c1c; }
+.fd-status-on_delivery { background: #dcfce7; color: #16a34a; }
+.fd-status-delivered { background: #dcfce7; color: #16a34a; }
+.fd-status-cancelled { background: #fee2e2; color: #dc2626; }
+.fd-status-uploaded { background: #fef3c7; color: #d97706; }
+.fd-status-verified { background: #dcfce7; color: #16a34a; }
+.fd-status-rejected { background: #fee2e2; color: #dc2626; }
+
+/* ============================================================
+   TABLES (TAMBAHAN)
+============================================================ */
+.fd-table-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+}
+.fd-table-card .table {
+    margin-bottom: 0;
+}
+.fd-table-card .table thead th {
+    background: #f9fafb;
+    color: #6b7280;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7eb;
+}
+.fd-table-card .table tbody td {
+    padding: 12px 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid #f3f4f6;
+}
+.fd-table-card .table tbody tr:last-child td {
+    border-bottom: none;
+}
+.fd-table-card .table tbody tr:hover {
+    background: #f9fafb;
+}
+
+/* ============================================================
+   ORDER SUMMARY STICKY CARD (TAMBAHAN)
+============================================================ */
+.fd-order-summary {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e5e7eb;
+    position: sticky;
+    top: 80px;
+}
+.fd-order-summary .divider {
+    border-top: 1px dashed #e5e7eb;
+    margin: 16px 0;
+}
+.fd-order-summary .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+}
+.fd-order-summary .summary-row.total {
+    font-size: 20px;
+    font-weight: 700;
+    color: #dc2626;
+}
+.fd-order-summary .btn-checkout {
+    padding: 14px;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 12px;
+    transition: all 0.25s ease;
+}
+.fd-order-summary .btn-checkout:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(220,38,38,0.3);
+}
+.fd-order-summary .btn-checkout:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ============================================================
+   TRACKING STEP INDICATOR (TAMBAHAN)
+============================================================ */
+.fd-tracking-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 24px 0;
+}
+.fd-tracking-steps::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #e5e7eb;
+    transform: translateY(-50%);
+    z-index: 0;
+}
+.fd-tracking-steps .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+.fd-tracking-steps .step .step-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background: #e5e7eb;
+    color: #9ca3af;
+    border: 3px solid #e5e7eb;
+    transition: all 0.25s ease;
+}
+.fd-tracking-steps .step.done .step-icon {
+    background: #22c55e;
+    color: white;
+    border-color: #22c55e;
+}
+.fd-tracking-steps .step.active .step-icon {
+    background: #dc2626;
+    color: white;
+    border-color: #dc2626;
+    animation: fd-pulse 1.5s infinite;
+}
+.fd-tracking-steps .step.cancelled .step-icon {
+    background: #ef4444;
+    color: white;
+    border-color: #ef4444;
+}
+.fd-tracking-steps .step .step-label {
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 8px;
+    text-align: center;
+    color: #6b7280;
+}
+.fd-tracking-steps .step.done .step-label {
+    color: #16a34a;
+}
+.fd-tracking-steps .step.active .step-label {
+    color: #dc2626;
+}
+
+/* ============================================================
+   CART ITEM LAYOUT (TAMBAHAN)
+============================================================ */
+.fd-cart-item {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 16px;
+    transition: all 0.2s ease;
+}
+.fd-cart-item:hover {
+    border-color: #fca5a5;
+}
+.fd-cart-item .cart-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.fd-cart-item .cart-title {
+    font-weight: 600;
+    font-size: 16px;
+}
+.fd-cart-item .cart-subtotal {
+    font-weight: 700;
+    color: #dc2626;
+    font-size: 16px;
+}
+.fd-cart-item .item-unavailable {
+    opacity: 0.6;
+    background: #f9fafb;
+}
+
+/* ============================================================
+   QUANTITY CONTROL (TAMBAHAN)
+============================================================ */
+.fd-qty-control {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.fd-qty-control .qty-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: #f9fafb;
+    font-size: 16px;
+    font-weight: 700;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fd-qty-control .qty-btn:hover:not(:disabled) {
+    background: #dc2626;
+    color: white;
+}
+.fd-qty-control .qty-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+.fd-qty-control .qty-input {
+    width: 44px;
+    height: 32px;
+    border: none;
+    border-left: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+    background: white;
+}
+.fd-qty-control .qty-input:focus {
+    outline: none;
+}
+.fd-qty-control .qty-input::-webkit-outer-spin-button,
+.fd-qty-control .qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.fd-qty-control .qty-input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* ============================================================
+   TOAST NOTIFICATION (TAMBAHAN)
+============================================================ */
+.fd-toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.fd-toast {
+    background: white;
+    border-radius: 12px;
+    padding: 14px 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-left: 4px solid #dc2626;
+    animation: fd-slideUp 0.3s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.fd-toast.success { border-left-color: #22c55e; }
+.fd-toast.danger { border-left-color: #ef4444; }
+.fd-toast.warning { border-left-color: #f59e0b; }
+.fd-toast .message {
+    font-weight: 500;
+    font-size: 14px;
+    color: #1f2937;
+}
+.fd-toast .close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 0 4px;
+}
+.fd-toast .close-btn:hover {
+    color: #6b7280;
+}
+
+/* ============================================================
+   EMPTY STATE (TAMBAHAN)
+============================================================ */
+.fd-empty-state {
+    text-align: center;
+    padding: 48px 24px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+.fd-empty-state .empty-icon {
+    font-size: 64px;
+    color: #d1d5db;
+    margin-bottom: 16px;
+}
+.fd-empty-state .empty-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 8px;
+}
+.fd-empty-state .empty-desc {
+    color: #6b7280;
+    margin-bottom: 16px;
+}
+
+/* ============================================================
+   LOADING SPINNER OVERLAY (TAMBAHAN)
+============================================================ */
+.fd-spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    backdrop-filter: blur(4px);
+    animation: fd-fadeIn 0.2s ease-out;
+}
+.fd-spinner-overlay .spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #e5e7eb;
+    border-top-color: #dc2626;
+    border-radius: 50%;
+    animation: fd-spin 0.8s linear infinite;
+}
+
+/* ============================================================
+   RATING STARS (TAMBAHAN)
+============================================================ */
+.fd-rating-stars {
+    color: #f59e0b;
+    font-size: 20px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+.fd-rating-stars .star {
+    transition: color 0.15s ease;
+}
+.fd-rating-stars .star:hover,
+.fd-rating-stars .star.active {
+    color: #f59e0b;
+}
+.fd-rating-stars .star.inactive {
+    color: #d1d5db;
+}
+
+/* ============================================================
+   ANIMATIONS (TAMBAHAN)
+============================================================ */
+@keyframes fd-fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fd-slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fd-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(220,38,38,0.4); transform: scale(1); }
+    70% { box-shadow: 0 0 0 12px rgba(220,38,38,0); transform: scale(1.05); }
+    100% { box-shadow: 0 0 0 0 rgba(220,38,38,0); transform: scale(1); }
+}
+@keyframes fd-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fd-fade-in { animation: fd-fadeIn 0.4s ease-out; }
+.fd-slide-up { animation: fd-slideUp 0.3s ease-out; }
+
+/* ============================================================
+   RESPONSIVE TAMBAHAN (max-width: 768px)
+============================================================ */
+@media (max-width: 768px) {
+    .fd-sidebar {
+        min-height: auto;
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    .fd-sidebar .nav-link {
+        padding: 8px 16px;
+        margin: 2px 8px;
+    }
+    .fd-stat-card .stat-number {
+        font-size: 22px;
+    }
+    .fd-tracking-steps .step .step-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+    .fd-tracking-steps .step .step-label {
+        font-size: 10px;
+    }
+    .fd-order-summary {
+        position: relative;
+        top: 0;
+        margin-top: 16px;
+    }
+    .fd-cart-item .cart-image {
+        width: 60px;
+        height: 60px;
+    }
+    .fd-toast-container {
+        bottom: 12px;
+        right: 12px;
+        max-width: calc(100% - 24px);
+    }
+}

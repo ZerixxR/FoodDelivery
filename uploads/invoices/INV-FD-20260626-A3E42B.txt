@@ -1,0 +1,31 @@
+========================================
+           FOODDELIVERY INVOICE          
+========================================
+
+Invoice Number: INV-FD-20260626-A3E42B
+Order Code:     FD-20260626-A3E42B
+Date:           26/06/2026 01:49:21
+
+----------------------------------------
+CUSTOMER INFORMATION
+----------------------------------------
+Name:    Zerix Allen
+Email:   buyer@food.com
+Phone:   085776171856
+Address: Jl. Raya Perjuangan No.81, RT.003/RW.002, Marga Mulya, Kec. Bekasi Utara, Kota Bks, Jawa Barat 17143
+
+----------------------------------------
+ORDER DETAILS
+----------------------------------------
+Nasi Goreng Spesial            x  1   Rp 35.000
+Es Teh Manis                   x  1    Rp 8.000
+
+----------------------------------------
+TOTAL:                              Rp 43.000
+----------------------------------------
+Payment Method: cod
+Status:         PENDING
+
+========================================
+Terima kasih telah berbelanja!
+========================================
